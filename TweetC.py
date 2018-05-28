@@ -1,4 +1,4 @@
-class TweetCriteria:
+class TweetC:
 
 	def __init__(self):
 		self.maxTweets = 0

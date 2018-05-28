@@ -6,7 +6,7 @@ class Tweet:
 	def __init__(self):
 		pass
 
-class TweetManager:
+class TweetManage:
 	
 	def __init__(self):
 		pass
@@ -22,13 +22,13 @@ class TweetManager:
 		active = True
 
 		while active:
-			json = TweetManager.getJsonReponse(tweetCriteria, refreshCursor, cookieJar, proxy)
+			json = TweetManage.getJsonReponse(tweetCriteria, refreshCursor, cookieJar, proxy)
 			if len(json['items_html'].strip()) == 0:
 				break
 
 			refreshCursor = json['min_position']
 			scrapedTweets = PyQuery(json['items_html'])
-			#Remove incomplete tweets withheld by Twitter Guidelines
+			
 			scrapedTweets.remove('div.withheld-tweet')
 			tweets = scrapedTweets('div.js-stream-tweet')
 			
